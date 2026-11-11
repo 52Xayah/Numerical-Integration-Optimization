@@ -1,0 +1,21 @@
+# CMake build directories
+/build/
+/build-*/
+
+# Python virtual environment
+/.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled files
+*.o
+*.a
+*.so
+*.out
+/integration
+
+# Python cache
+__pycache__/
+*.py[cod]

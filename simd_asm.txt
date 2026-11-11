@@ -1,0 +1,131 @@
+
+build/CMakeFiles/integration.dir/src/simd.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <integrate_simd(IntegrationConfig const&)>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 8b 0f             	mov    (%rdi),%rcx
+   7:	c5 fb 10 05 00 00 00 	vmovsd 0x0(%rip),%xmm0        # f <integrate_simd(IntegrationConfig const&)+0xf>
+   e:	00 
+   f:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+  13:	c5 fb 59 47 08       	vmulsd 0x8(%rdi),%xmm0,%xmm0
+  18:	48 85 c9             	test   %rcx,%rcx
+  1b:	0f 88 8f 01 00 00    	js     1b0 <integrate_simd(IntegrationConfig const&)+0x1b0>
+  21:	c4 e1 eb 2a c9       	vcvtsi2sd %rcx,%xmm2,%xmm1
+  26:	c5 fb 5e c1          	vdivsd %xmm1,%xmm0,%xmm0
+  2a:	c4 e2 7d 19 e0       	vbroadcastsd %xmm0,%ymm4
+  2f:	48 83 f9 03          	cmp    $0x3,%rcx
+  33:	0f 86 a2 01 00 00    	jbe    1db <integrate_simd(IntegrationConfig const&)+0x1db>
+  39:	48 8d 41 fc          	lea    -0x4(%rcx),%rax
+  3d:	c5 e1 57 db          	vxorpd %xmm3,%xmm3,%xmm3
+  41:	c5 7d 28 0d 00 00 00 	vmovapd 0x0(%rip),%ymm9        # 49 <integrate_simd(IntegrationConfig const&)+0x49>
+  48:	00 
+  49:	c4 62 7d 19 05 00 00 	vbroadcastsd 0x0(%rip),%ymm8        # 52 <integrate_simd(IntegrationConfig const&)+0x52>
+  50:	00 00 
+  52:	c4 e2 7d 19 3d 00 00 	vbroadcastsd 0x0(%rip),%ymm7        # 5b <integrate_simd(IntegrationConfig const&)+0x5b>
+  59:	00 00 
+  5b:	48 89 c2             	mov    %rax,%rdx
+  5e:	c4 e2 7d 19 35 00 00 	vbroadcastsd 0x0(%rip),%ymm6        # 67 <integrate_simd(IntegrationConfig const&)+0x67>
+  65:	00 00 
+  67:	c4 e2 7d 19 2d 00 00 	vbroadcastsd 0x0(%rip),%ymm5        # 70 <integrate_simd(IntegrationConfig const&)+0x70>
+  6e:	00 00 
+  70:	48 c1 ea 02          	shr    $0x2,%rdx
+  74:	48 8d 3c 95 04 00 00 	lea    0x4(,%rdx,4),%rdi
+  7b:	00 
+  7c:	31 d2                	xor    %edx,%edx
+  7e:	eb 45                	jmp    c5 <integrate_simd(IntegrationConfig const&)+0xc5>
+  80:	c4 61 eb 2a d2       	vcvtsi2sd %rdx,%xmm2,%xmm10
+  85:	c4 42 7d 19 d2       	vbroadcastsd %xmm10,%ymm10
+  8a:	48 83 c2 04          	add    $0x4,%rdx
+  8e:	c4 41 2d 58 d1       	vaddpd %ymm9,%ymm10,%ymm10
+  93:	c5 2d 59 d4          	vmulpd %ymm4,%ymm10,%ymm10
+  97:	c4 41 2d 59 da       	vmulpd %ymm10,%ymm10,%ymm11
+  9c:	c4 c1 25 59 c8       	vmulpd %ymm8,%ymm11,%ymm1
+  a1:	c5 f5 58 cf          	vaddpd %ymm7,%ymm1,%ymm1
+  a5:	c4 c1 75 59 cb       	vmulpd %ymm11,%ymm1,%ymm1
+  aa:	c5 f5 58 ce          	vaddpd %ymm6,%ymm1,%ymm1
+  ae:	c4 c1 75 59 cb       	vmulpd %ymm11,%ymm1,%ymm1
+  b3:	c5 f5 58 cd          	vaddpd %ymm5,%ymm1,%ymm1
+  b7:	c4 c1 75 59 ca       	vmulpd %ymm10,%ymm1,%ymm1
+  bc:	c5 e5 58 d9          	vaddpd %ymm1,%ymm3,%ymm3
+  c0:	48 39 fa             	cmp    %rdi,%rdx
+  c3:	74 2b                	je     f0 <integrate_simd(IntegrationConfig const&)+0xf0>
+  c5:	48 85 d2             	test   %rdx,%rdx
+  c8:	79 b6                	jns    80 <integrate_simd(IntegrationConfig const&)+0x80>
+  ca:	48 89 d6             	mov    %rdx,%rsi
+  cd:	49 89 d0             	mov    %rdx,%r8
+  d0:	48 d1 ee             	shr    $1,%rsi
+  d3:	41 83 e0 01          	and    $0x1,%r8d
+  d7:	4c 09 c6             	or     %r8,%rsi
+  da:	c4 61 eb 2a d6       	vcvtsi2sd %rsi,%xmm2,%xmm10
+  df:	c4 41 2b 58 d2       	vaddsd %xmm10,%xmm10,%xmm10
+  e4:	eb 9f                	jmp    85 <integrate_simd(IntegrationConfig const&)+0x85>
+  e6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  ed:	00 00 00 
+  f0:	c5 e1 15 cb          	vunpckhpd %xmm3,%xmm3,%xmm1
+  f4:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+  f8:	c5 e3 58 e1          	vaddsd %xmm1,%xmm3,%xmm4
+  fc:	c4 e3 7d 19 db 01    	vextractf128 $0x1,%ymm3,%xmm3
+ 102:	48 83 c0 04          	add    $0x4,%rax
+ 106:	c5 db 58 e3          	vaddsd %xmm3,%xmm4,%xmm4
+ 10a:	c5 e1 15 db          	vunpckhpd %xmm3,%xmm3,%xmm3
+ 10e:	c5 db 58 e3          	vaddsd %xmm3,%xmm4,%xmm4
+ 112:	48 39 c8             	cmp    %rcx,%rax
+ 115:	0f 83 85 00 00 00    	jae    1a0 <integrate_simd(IntegrationConfig const&)+0x1a0>
+ 11b:	c5 7b 10 05 00 00 00 	vmovsd 0x0(%rip),%xmm8        # 123 <integrate_simd(IntegrationConfig const&)+0x123>
+ 122:	00 
+ 123:	c5 fb 10 3d 00 00 00 	vmovsd 0x0(%rip),%xmm7        # 12b <integrate_simd(IntegrationConfig const&)+0x12b>
+ 12a:	00 
+ 12b:	c5 fb 10 35 00 00 00 	vmovsd 0x0(%rip),%xmm6        # 133 <integrate_simd(IntegrationConfig const&)+0x133>
+ 132:	00 
+ 133:	c5 fb 10 2d 00 00 00 	vmovsd 0x0(%rip),%xmm5        # 13b <integrate_simd(IntegrationConfig const&)+0x13b>
+ 13a:	00 
+ 13b:	eb 3c                	jmp    179 <integrate_simd(IntegrationConfig const&)+0x179>
+ 13d:	0f 1f 00             	nopl   (%rax)
+ 140:	c4 e1 eb 2a d8       	vcvtsi2sd %rax,%xmm2,%xmm3
+ 145:	c5 e3 59 d8          	vmulsd %xmm0,%xmm3,%xmm3
+ 149:	48 83 c0 01          	add    $0x1,%rax
+ 14d:	c5 63 59 cb          	vmulsd %xmm3,%xmm3,%xmm9
+ 151:	c4 c1 33 59 c8       	vmulsd %xmm8,%xmm9,%xmm1
+ 156:	c5 f3 58 cf          	vaddsd %xmm7,%xmm1,%xmm1
+ 15a:	c4 c1 73 59 c9       	vmulsd %xmm9,%xmm1,%xmm1
+ 15f:	c5 f3 5c ce          	vsubsd %xmm6,%xmm1,%xmm1
+ 163:	c4 c1 73 59 c9       	vmulsd %xmm9,%xmm1,%xmm1
+ 168:	c5 f3 58 cd          	vaddsd %xmm5,%xmm1,%xmm1
+ 16c:	c5 f3 59 cb          	vmulsd %xmm3,%xmm1,%xmm1
+ 170:	c5 db 58 e1          	vaddsd %xmm1,%xmm4,%xmm4
+ 174:	48 39 c1             	cmp    %rax,%rcx
+ 177:	74 27                	je     1a0 <integrate_simd(IntegrationConfig const&)+0x1a0>
+ 179:	48 85 c0             	test   %rax,%rax
+ 17c:	79 c2                	jns    140 <integrate_simd(IntegrationConfig const&)+0x140>
+ 17e:	48 89 c2             	mov    %rax,%rdx
+ 181:	48 89 c6             	mov    %rax,%rsi
+ 184:	48 d1 ea             	shr    $1,%rdx
+ 187:	83 e6 01             	and    $0x1,%esi
+ 18a:	48 09 f2             	or     %rsi,%rdx
+ 18d:	c4 e1 eb 2a da       	vcvtsi2sd %rdx,%xmm2,%xmm3
+ 192:	c5 e3 58 db          	vaddsd %xmm3,%xmm3,%xmm3
+ 196:	eb ad                	jmp    145 <integrate_simd(IntegrationConfig const&)+0x145>
+ 198:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 19f:	00 
+ 1a0:	c5 fb 59 c4          	vmulsd %xmm4,%xmm0,%xmm0
+ 1a4:	c5 f8 77             	vzeroupper
+ 1a7:	c3                   	ret
+ 1a8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 1af:	00 
+ 1b0:	48 89 c8             	mov    %rcx,%rax
+ 1b3:	48 89 ca             	mov    %rcx,%rdx
+ 1b6:	48 d1 e8             	shr    $1,%rax
+ 1b9:	83 e2 01             	and    $0x1,%edx
+ 1bc:	48 09 d0             	or     %rdx,%rax
+ 1bf:	c4 e1 eb 2a c8       	vcvtsi2sd %rax,%xmm2,%xmm1
+ 1c4:	c5 f3 58 c9          	vaddsd %xmm1,%xmm1,%xmm1
+ 1c8:	c5 fb 5e c1          	vdivsd %xmm1,%xmm0,%xmm0
+ 1cc:	c4 e2 7d 19 e0       	vbroadcastsd %xmm0,%ymm4
+ 1d1:	48 83 f9 03          	cmp    $0x3,%rcx
+ 1d5:	0f 87 5e fe ff ff    	ja     39 <integrate_simd(IntegrationConfig const&)+0x39>
+ 1db:	c5 d9 57 e4          	vxorpd %xmm4,%xmm4,%xmm4
+ 1df:	31 c0                	xor    %eax,%eax
+ 1e1:	e9 2c ff ff ff       	jmp    112 <integrate_simd(IntegrationConfig const&)+0x112>

@@ -1,0 +1,67 @@
+Change Dir: '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+
+Run Clean Command: /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile clean
+/usr/bin/gmake  -f CMakeFiles/Makefile2 clean
+gmake[1]: Entering directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+/usr/bin/gmake  -f CMakeFiles/integration.dir/build.make CMakeFiles/integration.dir/clean
+gmake[2]: Entering directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+/usr/bin/cmake -P CMakeFiles/integration.dir/cmake_clean.cmake
+gmake[2]: Leaving directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+gmake[1]: Leaving directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile
+/usr/bin/cmake -S/mnt/d/Projects/Numerical-Integration-Optimization -B/mnt/d/Projects/Numerical-Integration-Optimization/build-vec --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /mnt/d/Projects/Numerical-Integration-Optimization/build-vec/CMakeFiles /mnt/d/Projects/Numerical-Integration-Optimization/build-vec//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+/usr/bin/gmake  -f CMakeFiles/integration.dir/build.make CMakeFiles/integration.dir/depend
+gmake[2]: Entering directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+cd /mnt/d/Projects/Numerical-Integration-Optimization/build-vec && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /mnt/d/Projects/Numerical-Integration-Optimization /mnt/d/Projects/Numerical-Integration-Optimization /mnt/d/Projects/Numerical-Integration-Optimization/build-vec /mnt/d/Projects/Numerical-Integration-Optimization/build-vec /mnt/d/Projects/Numerical-Integration-Optimization/build-vec/CMakeFiles/integration.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+/usr/bin/gmake  -f CMakeFiles/integration.dir/build.make CMakeFiles/integration.dir/build
+gmake[2]: Entering directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+[ 16%] Building CXX object CMakeFiles/integration.dir/src/main.cpp.o
+/usr/bin/c++  -I/mnt/d/Projects/Numerical-Integration-Optimization/include -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG -std=gnu++17 -O2 -Wall -Wextra -MD -MT CMakeFiles/integration.dir/src/main.cpp.o -MF CMakeFiles/integration.dir/src/main.cpp.o.d -o CMakeFiles/integration.dir/src/main.cpp.o -c /mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp
+/usr/include/c++/13/ostream:574:16: missed: statement clobbers memory: std::basic_ostream<char>::put (__out_1(D), _9);
+/usr/include/c++/13/ostream:573:25: missed: statement clobbers memory: std::__ostream_insert<char, std::char_traits<char> > (__out_1(D), &__c, 1);
+/mnt/d/Projects/Numerical-Integration-Optimization/include/benchmark.h:8:54: missed: statement clobbers memory: start = std::chrono::_V2::steady_clock::now ();
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:18:32: missed: statement clobbers memory: _41 = integrate_simd (&config);
+/mnt/d/Projects/Numerical-Integration-Optimization/include/benchmark.h:12:52: missed: statement clobbers memory: end = std::chrono::_V2::steady_clock::now ();
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:28:18: missed: statement clobbers memory: std::operator<< <std::char_traits<char> > (&cout, "Version: V5 AVX2 SIMD\n");
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:29:18: missed: statement clobbers memory: _14 = std::operator<< <std::char_traits<char> > (&cout, "N: ");
+/usr/include/c++/13/ostream:173:25: missed: statement clobbers memory: _28 = std::basic_ostream<char>::_M_insert<long unsigned int> (_14, _1);
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:29:39: missed: statement clobbers memory: std::operator<<.isra (_28, 10);
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:30:18: missed: statement clobbers memory: _17 = std::operator<< <std::char_traits<char> > (&cout, "Result: ");
+/usr/include/c++/13/ostream:223:25: missed: statement clobbers memory: _29 = std::basic_ostream<char>::_M_insert<double> (_17, _41);
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:30:42: missed: statement clobbers memory: std::operator<<.isra (_29, 10);
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:31:18: missed: statement clobbers memory: _20 = std::operator<< <std::char_traits<char> > (&cout, "Time: ");
+/usr/include/c++/13/ostream:223:25: missed: statement clobbers memory: _30 = std::basic_ostream<char>::_M_insert<double> (_20, _46);
+/mnt/d/Projects/Numerical-Integration-Optimization/src/main.cpp:31:41: missed: statement clobbers memory: std::operator<< <std::char_traits<char> > (_30, " ms\n");
+[ 33%] Building CXX object CMakeFiles/integration.dir/src/baseline.cpp.o
+/usr/bin/c++  -I/mnt/d/Projects/Numerical-Integration-Optimization/include -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG -std=gnu++17 -O2 -Wall -Wextra -MD -MT CMakeFiles/integration.dir/src/baseline.cpp.o -MF CMakeFiles/integration.dir/src/baseline.cpp.o.d -o CMakeFiles/integration.dir/src/baseline.cpp.o -c /mnt/d/Projects/Numerical-Integration-Optimization/src/baseline.cpp
+/mnt/d/Projects/Numerical-Integration-Optimization/src/baseline.cpp:8:33: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/baseline.cpp:3:8: missed: not vectorized: unsupported data-type double
+[ 50%] Building CXX object CMakeFiles/integration.dir/src/horner.cpp.o
+/usr/bin/c++  -I/mnt/d/Projects/Numerical-Integration-Optimization/include -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG -std=gnu++17 -O2 -Wall -Wextra -MD -MT CMakeFiles/integration.dir/src/horner.cpp.o -MF CMakeFiles/integration.dir/src/horner.cpp.o.d -o CMakeFiles/integration.dir/src/horner.cpp.o -c /mnt/d/Projects/Numerical-Integration-Optimization/src/horner.cpp
+/mnt/d/Projects/Numerical-Integration-Optimization/src/horner.cpp:8:33: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/horner.cpp:4:8: missed: not vectorized: unsupported data-type double
+[ 66%] Building CXX object CMakeFiles/integration.dir/src/unroll.cpp.o
+/usr/bin/c++  -I/mnt/d/Projects/Numerical-Integration-Optimization/include -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG -std=gnu++17 -O2 -Wall -Wextra -MD -MT CMakeFiles/integration.dir/src/unroll.cpp.o -MF CMakeFiles/integration.dir/src/unroll.cpp.o.d -o CMakeFiles/integration.dir/src/unroll.cpp.o -c /mnt/d/Projects/Numerical-Integration-Optimization/src/unroll.cpp
+/mnt/d/Projects/Numerical-Integration-Optimization/src/unroll.cpp:228:14: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/unroll.cpp:177:8: missed: not vectorized: unsupported data-type uint64_t
+/mnt/d/Projects/Numerical-Integration-Optimization/src/unroll.cpp:201:25: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/unroll.cpp:177:8: missed: not vectorized: unsupported data-type double
+[ 83%] Building CXX object CMakeFiles/integration.dir/src/simd.cpp.o
+/usr/bin/c++  -I/mnt/d/Projects/Numerical-Integration-Optimization/include -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG -std=gnu++17 -O2 -Wall -Wextra -mavx2 -ffp-contract=off -MD -MT CMakeFiles/integration.dir/src/simd.cpp.o -MF CMakeFiles/integration.dir/src/simd.cpp.o.d -o CMakeFiles/integration.dir/src/simd.cpp.o -c /mnt/d/Projects/Numerical-Integration-Optimization/src/simd.cpp
+/mnt/d/Projects/Numerical-Integration-Optimization/src/simd.cpp:69:14: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/simd.cpp:5:8: missed: not vectorized: unsupported data-type uint64_t
+/mnt/d/Projects/Numerical-Integration-Optimization/src/simd.cpp:26:25: missed: couldn't vectorize loop
+/mnt/d/Projects/Numerical-Integration-Optimization/src/simd.cpp:5:8: missed: not vectorized: unsupported data-type __m256d
+[100%] Linking CXX executable integration
+/usr/bin/cmake -E cmake_link_script CMakeFiles/integration.dir/link.txt --verbose=1
+/usr/bin/c++ -fopt-info-vec-optimized -fopt-info-vec-missed -O3 -DNDEBUG CMakeFiles/integration.dir/src/main.cpp.o CMakeFiles/integration.dir/src/baseline.cpp.o CMakeFiles/integration.dir/src/horner.cpp.o CMakeFiles/integration.dir/src/unroll.cpp.o CMakeFiles/integration.dir/src/simd.cpp.o -o integration 
+gmake[2]: Leaving directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+[100%] Built target integration
+gmake[1]: Leaving directory '/mnt/d/Projects/Numerical-Integration-Optimization/build-vec'
+/usr/bin/cmake -E cmake_progress_start /mnt/d/Projects/Numerical-Integration-Optimization/build-vec/CMakeFiles 0
+
